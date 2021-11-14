@@ -1,9 +1,17 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.7.6;
+pragma solidity >=0.8.9 <0.9.0;
 pragma experimental ABIEncoderV2;
 
+import "../interfaces/ITest1Facet.sol";
 contract Test2Facet {
-    function test2Func1() external {}
+    ITest1Facet teset2;
+    function test2Func1(uint a, uint b) external view returns (uint){
+        return getAdd(a, b);
+    }
+
+    function getAdd(uint a, uint b) internal returns (uint c) {
+        c = a + b;
+    }
 
     function test2Func2() external {}
 
